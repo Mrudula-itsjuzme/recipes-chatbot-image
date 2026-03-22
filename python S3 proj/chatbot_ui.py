@@ -3,6 +3,7 @@
 
 import tkinter as tk
 from tkinter import scrolledtext
+from typing import Callable, Optional
 
 # --- Color Palette ---
 BG_COLOR = "#131314"
@@ -17,17 +18,17 @@ BOT_COLOR = "#FDB663"
 class ChatApplication(tk.Tk):
     """A simple chat application UI using tkinter."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.title("Chef Tony")
         self.geometry("600x750")
 
-        self.on_send_message = None  # Callback function
-        self.typing_animation_id = None # To control the animation
+        self.on_send_message: Optional[Callable[[str], None]] = None  # Callback function
+        self.typing_animation_id: Optional[str] = None  # To control the animation
 
         self._setup_ui()
 
-    def _setup_ui(self):
+    def _setup_ui(self) -> None:
         """Builds the widgets for the chat window."""
         self.configure(bg=BG_COLOR)
 
@@ -87,18 +88,18 @@ class ChatApplication(tk.Tk):
         )
         self.send_button.pack(side=tk.RIGHT)
 
-    def _on_enter_key(self, event):
+    def _on_enter_key(self, event: tk.Event) -> None:
         """Handles when the user presses the Enter key."""
         self._send_message_from_ui()
 
-    def _send_message_from_ui(self):
+    def _send_message_from_ui(self) -> None:
         """Gets text from the entry box and calls the main send function."""
         message = self.message_entry.get().strip()
         if message and self.on_send_message:
             self.on_send_message(message)
             self.message_entry.delete(0, tk.END)
 
-    def add_message(self, sender: str, message: str):
+    def add_message(self, sender: str, message: str) -> None:
         """
         Adds a message to the chat history display, preserving whitespace.
         """
@@ -116,7 +117,7 @@ class ChatApplication(tk.Tk):
         self.chat_history.tag_config('bot_style', font=('Arial', 13, 'bold'), foreground=BOT_COLOR)
         self.chat_history.tag_config('typing_style', font=('Arial', 12, 'italic'), foreground=BOT_COLOR)
 
-    def show_typing_indicator(self):
+    def show_typing_indicator(self) -> None:
         """Displays an animated 'is typing...' indicator."""
         self.chat_history.config(state='normal')
         # Add a tag to the indicator so we can find and delete it later
@@ -126,7 +127,7 @@ class ChatApplication(tk.Tk):
         self.chat_history.yview(tk.END)
         self._animate_typing(0)
 
-    def _animate_typing(self, counter):
+    def _animate_typing(self, counter: int) -> None:
         """Animates the dots of the typing indicator."""
         dots = "." * ((counter % 3) + 1)
         self.chat_history.config(state='normal')
@@ -140,7 +141,7 @@ class ChatApplication(tk.Tk):
         # Schedule the next animation frame
         self.typing_animation_id = self.after(400, self._animate_typing, counter + 1)
 
-    def hide_typing_indicator(self):
+    def hide_typing_indicator(self) -> None:
         """Removes the 'is typing...' indicator."""
         if self.typing_animation_id:
             self.after_cancel(self.typing_animation_id)
@@ -151,14 +152,14 @@ class ChatApplication(tk.Tk):
         self.chat_history.delete("typing_indicator.first", "typing_indicator.last")
         self.chat_history.config(state='disabled')
 
-    def set_send_message_callback(self, callback):
+    def set_send_message_callback(self, callback: Callable[[str], None]) -> None:
         """Sets the function to be called when the send button is clicked."""
         self.on_send_message = callback
 
 if __name__ == '__main__':
     # This is for testing the UI directly
     app = ChatApplication()
-    def dummy_send(msg):
+    def dummy_send(msg: str) -> None:
         app.add_message("You", msg)
         app.show_typing_indicator()
         # Simulate a delay before responding

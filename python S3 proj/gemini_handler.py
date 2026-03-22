@@ -4,9 +4,13 @@
 import os
 import google.generativeai as genai
 from dotenv import load_dotenv
+from typing import Optional
 
 # Load environment variables from a .env file
 load_dotenv()
+def _resolve_api_key() -> Optional[str]:
+    """Fetch Gemini API key from environment."""
+    return os.getenv("GEMINI_API_KEY")
 
 def get_gemini_response(user_query: str) -> str:
     """
@@ -21,7 +25,7 @@ def get_gemini_response(user_query: str) -> str:
     try:
         # --- Configuration ---
         # It's best practice to keep your API key in a .env file
-        api_key = os.getenv("GEMINI_API_KEY")
+        api_key = _resolve_api_key()
         if not api_key:
             return "Error: GEMINI_API_KEY not found. Please set it in your .env file."
 
