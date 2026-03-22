@@ -1,35 +1,31 @@
-# recipes-chatbot-image
+# Recipe Chatbot with Image Recognition
 
 ## Overview
-Part of AI research portfolio domain: experiments.
 
-## Problem Statement
-Define a reproducible research objective.
+This project is a recipe assistant chatbot that utilizes image recognition to identify ingredients and suggest recipes. It is part of a research portfolio focused on experimental AI and computer vision.
 
-## System Architecture
-See docs/architecture.md.
+## Project Structure
 
-## Methodology
-See docs/methodology.md.
+- **src/**: Core implementation of the chatbot and image processing modules.
+- **experiments/**: Testing various model architectures for ingredient classification.
+- **notebooks/**: Prototyping and exploratory data analysis of culinary datasets.
+- **datasets/**: Repository for training images and recipe metadata.
+- **docs/**: Detailed documentation on the system architecture and recognition methodology.
 
-## Implementation
-- src/
-- experiments/
-- notebooks/
-- tests/
-- datasets/
-- docs/
-- scripts/
+## Key Features
 
-## Results
-See docs/results.md.
+- **Ingredient Recognition**: Identifies food items from uploaded images.
+- **Interactive Chat**: Conversational interface for recipe discovery and cooking guidance.
+- **Data-Driven Suggestions**: Matches recognized ingredients with a comprehensive recipe database.
 
 ## Usage Instructions
-1. Install dependencies.
-2. Run scripts.
-3. Execute experiments.
 
-## Future Work
-- Improve reproducibility
-- Expand evaluation
-- Increase test coverage
+1. Install dependencies from `requirements.txt`.
+2. Configure API keys if external LLM or vision services are required.
+3. Run the primary application script located in the `src/` directory.
+
+## Future Enhancements
+
+- Improved accuracy for complex, multi-ingredient images.
+- Personalized recipe recommendations based on user preferences.
+- Integration of voice commands for hands-free kitchen assistance.
