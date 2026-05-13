@@ -6,6 +6,19 @@ The project explores a practical kitchen workflow: upload an ingredient image, i
 
 ---
 
+## Project links and evidence
+
+| Item | Link / Note |
+|---|---|
+| Repository | https://github.com/Mrudula-itsjuzme/recipes-chatbot-image |
+| Paper / reference | Applied AI prototype; no paper attached |
+| Demo video | Not uploaded yet |
+| Deployment | No hosted deployment yet |
+| Dataset note | Intended for ingredient images and recipe metadata; dataset sources should be documented before serious reuse |
+| Result screenshots | Add sample input image, detected ingredients, and generated recipe response screenshots under `docs/` or `screenshots/` |
+
+---
+
 ## Problem statement
 
 People often have ingredients but do not know what to cook with them. A visual recipe assistant can make cooking suggestions faster by recognizing ingredients from images and turning them into recipe ideas.
