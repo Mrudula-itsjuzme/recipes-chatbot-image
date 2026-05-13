@@ -1,31 +1,92 @@
 # Recipe Chatbot with Image Recognition
 
-## Overview
+An AI recipe-assistant concept that combines chatbot interaction with image-based ingredient recognition.
 
-This project is a recipe assistant chatbot that utilizes image recognition to identify ingredients and suggest recipes. It is part of a research portfolio focused on experimental AI and computer vision.
+The project explores a practical kitchen workflow: upload an ingredient image, identify possible ingredients, and suggest recipes through a conversational interface.
 
-## Project Structure
+---
 
-- **src/**: Core implementation of the chatbot and image processing modules.
-- **experiments/**: Testing various model architectures for ingredient classification.
-- **notebooks/**: Prototyping and exploratory data analysis of culinary datasets.
-- **datasets/**: Repository for training images and recipe metadata.
-- **docs/**: Detailed documentation on the system architecture and recognition methodology.
+## Problem statement
 
-## Key Features
+People often have ingredients but do not know what to cook with them. A visual recipe assistant can make cooking suggestions faster by recognizing ingredients from images and turning them into recipe ideas.
 
-- **Ingredient Recognition**: Identifies food items from uploaded images.
-- **Interactive Chat**: Conversational interface for recipe discovery and cooking guidance.
-- **Data-Driven Suggestions**: Matches recognized ingredients with a comprehensive recipe database.
+---
 
-## Usage Instructions
+## Features
 
-1. Install dependencies from `requirements.txt`.
-2. Configure API keys if external LLM or vision services are required.
-3. Run the primary application script located in the `src/` directory.
+- ingredient recognition from uploaded images
+- chatbot-based recipe discovery
+- recipe suggestions based on detected ingredients
+- image-processing module structure
+- experiment area for ingredient-classification models
+- dataset and notebook organization for future training
 
-## Future Enhancements
+---
 
-- Improved accuracy for complex, multi-ingredient images.
-- Personalized recipe recommendations based on user preferences.
-- Integration of voice commands for hands-free kitchen assistance.
+## System flow
+
+```text
+Ingredient Image
+       ↓
+Image Processing / Recognition
+       ↓
+Ingredient List
+       ↓
+Recipe Matching
+       ↓
+Chatbot Response
+```
+
+---
+
+## Repository structure
+
+```text
+recipes-chatbot-image/
+├── src/          # chatbot and image-processing modules
+├── experiments/  # model experiments for ingredient classification
+├── notebooks/    # exploratory analysis and prototypes
+├── datasets/     # image data and recipe metadata
+├── docs/         # architecture and methodology notes
+└── README.md
+```
+
+---
+
+## How to use
+
+```bash
+git clone https://github.com/Mrudula-itsjuzme/recipes-chatbot-image.git
+cd recipes-chatbot-image
+
+pip install -r requirements.txt
+```
+
+Configure any required API keys or model paths, then run the primary app script from the `src/` folder.
+
+---
+
+## Tech focus
+
+- Computer Vision
+- Image classification
+- Conversational AI
+- Recipe recommendation
+- Python-based AI prototyping
+
+---
+
+## Future improvements
+
+- add a runnable demo entry point
+- include sample input/output images
+- improve multi-ingredient recognition
+- add personalized recipe preferences
+- add voice support for hands-free cooking
+- document dataset sources and model accuracy
+
+---
+
+## Author
+
+Built by [Pedamallu Sai Mrudula](https://github.com/Mrudula-itsjuzme) as part of an applied AI, computer-vision, and chatbot portfolio.
